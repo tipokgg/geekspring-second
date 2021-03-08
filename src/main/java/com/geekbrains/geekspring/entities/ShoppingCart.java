@@ -1,6 +1,8 @@
 package com.geekbrains.geekspring.entities;
 
 import lombok.Data;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,8 @@ public class ShoppingCart {
             orderItem.setProduct(product);
             orderItem.setItemPrice(product.getPrice());
             orderItem.setQuantity(0L);
-            orderItem.setId(0L);
+            // setId закомментировал, иначе получаю PersistentObjectException при сохранении заказа в БД
+//            orderItem.setId(0L);
             orderItem.setTotalPrice(0.0);
             items.add(orderItem);
         }

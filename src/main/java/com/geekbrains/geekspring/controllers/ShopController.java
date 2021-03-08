@@ -126,6 +126,10 @@ public class ShopController {
         order.setDeliveryDate(LocalDateTime.now().plusDays(7));
         order.setDeliveryPrice(0.0);
         order = orderService.saveOrder(order);
+
+        // очищаем корзину после сохранения заказа
+        shoppingCartService.resetCart(httpServletRequest.getSession());
+
         model.addAttribute("order", order);
         return "order-filler";
     }
