@@ -1,15 +1,19 @@
 package com.geekbrains.geekspring.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @Entity
 @Table(name = "orders")
 @Data
 public class Order {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,9 +48,14 @@ public class Order {
     private LocalDateTime deliveryDate;
 
     @Column(name = "create_at")
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
     @Column(name = "update_at")
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    // добавил ещё одно поле, т.к. оно используется на вьюшке order-filler
+    @Column(name = "confirmed")
+    private Boolean confirmed;
 }
