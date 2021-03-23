@@ -1,0 +1,8 @@
+<!-- SOAP конверт, который отправляется в запросе к веб сервису-->
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://www.geekbrains.com/geekspring/soap/gen">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:getAllProductsRequest/>
+    </soapenv:Body>
+</soapenv:Envelope>

@@ -46,7 +46,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        // csrf().disable() для того чтобы в Постмане не возвращалась 403 ошибка
+        http.csrf().disable().authorizeRequests()
               //  .antMatchers("/register/**").permitAll()
                 .antMatchers("/").hasRole("EMPLOYEE")
                 .antMatchers("/admin/**").hasRole("ADMIN")
